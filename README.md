@@ -1,2 +1,4 @@
-# game-tracker-frontend
-Final project - front repo for game tracker
+# Game Tracker for Game Lovers
+
+
+

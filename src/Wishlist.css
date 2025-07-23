@@ -1,0 +1,59 @@
+
+
+.wishlist-container {
+    display: flex;
+    flex-wrap: wrap;              
+    justify-content: center;     
+    align-items: flex-start;    
+    gap: 2rem;                    
+    max-width: 1200px;            
+    margin: 0 auto;               
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+}
+
+.game-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+  
+.game-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;                 
+    background-color: #7d71717a;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 1rem;
+}
+
+.note-textarea {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #302e2e;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+    background: transparent;
+    min-height: 100px;
+    padding: 10px;
+    resize: vertical;
+    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease-in-out;
+}
+
+.note-textarea:hover {
+    transform: translate(0, -5px);
+    outline: none;
+}
+
+.note-pad {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
