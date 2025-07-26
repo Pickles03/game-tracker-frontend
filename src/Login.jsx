@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import './Login.css';
 
-import axios from 'axios';
+import axios from './api';
 
 function Login({onLogin, switchToSignUp}) {
     const [email, setEmail] = useState('');
@@ -15,7 +15,7 @@ function Login({onLogin, switchToSignUp}) {
         setError('');
 
         try {
-            const response = await axios.post('http://localhost:3000/api/auth/login', {
+            const response = await api.post('/auth/login', {
                 email,
                 password,
             });
