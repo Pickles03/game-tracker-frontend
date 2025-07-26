@@ -18,8 +18,8 @@ function Games ({onLikeGame, sortOption, genreFilter}) {
             const response = await api.get('/games', {
                 params: {
                     page: reset ? 1 : page,
-                    ordering: sortOption,
-                    genre: genreFilter,
+                    ...(sortOption && {ordering: sortOption}),
+                    ...(genreFilter && {genre: genreFilter}),
                 },
             });
 
@@ -97,9 +97,10 @@ function Games ({onLikeGame, sortOption, genreFilter}) {
             {games.map(game => (
                 <div className='gameCard' key={game.id}>
                     <img src={game.background_image} alt={game.name}/>
-                    <h4>{game.name}</h4>
+                    <h4>{/^[\x00-\x7F\s\w\d.,!?'":;\-()]+$/.test(game.name) ? game.name : game.slug.replace(/-/g, ' ')}</h4>
                     <p>Released: {game.released}</p>
                     <p>Rating: {game.rating}</p>
+                    <p>Genres: {game.genres.join(', ')}</p>
                     <p>Platforms: {game.platforms.join(', ')}</p>
                     <div className='wishlist-button-container'>
                         <button 

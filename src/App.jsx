@@ -12,6 +12,8 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [signedUp, setSignedUp] = useState(false);
   const [likedGames, setLikedGames] = useState([]);
+  const [sortOption, setSortOption] = useState('');
+  const [genreFilter, setGenreFilter] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -66,13 +68,17 @@ function App() {
           onLogout={handleLogOut}
           goToWishlist={() => navigate('/wishlist')}
           goToGames={() => navigate('/games')}
+          sortOption={sortOption}
+          setSortOption={setSortOption}
+          genreFilter={genreFilter}
+          setGenreFilter={setGenreFilter}
       />}
          
       <h1>Welcome to the game tracker and wishlist creator</h1>
 
       <Routes>
         <Route path='/' element={isLoggedIn ? (<Navigate to='/games' />) : (!signedUp ? (<Login onLogin={handleLogin} switchToSignUp={switchToSignUp}/>) : (<SignUp switchToLogin={switchToLogin}/>))} />
-        <Route path='/games' element={isLoggedIn ? (<Games onLikeGame={handleLikeGame} />) : (<Navigate to='/' />)} />
+        <Route path='/games' element={isLoggedIn ? (<Games onLikeGame={handleLikeGame} sortOption={sortOption} genreFilter={genreFilter}/>) : (<Navigate to='/' />)} />
         <Route  path='/wishlist' element={isLoggedIn ? (<Wishlist />) : (<Navigate to='/' />)} />
       </Routes>
     </>
