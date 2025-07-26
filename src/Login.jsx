@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import './Login.css';
 
-import axios from './api';
+import api from './api';
 
 function Login({onLogin, switchToSignUp}) {
     const [email, setEmail] = useState('');

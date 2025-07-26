@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import axios from './api';
+import api from './api.js';
 import './SignUp.css';
 
 function SignUp({switchToLogin}) {
