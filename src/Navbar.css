@@ -1,0 +1,75 @@
+.navbar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    z-index: 1000;
+    background-color: black;
+    padding: 25px 0px;
+    transition: transform 0.5s ease-in-out, opacity 1s ease-in-out;
+}
+
+.navbar.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.navbar.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 10px;
+}
+
+.dropdowns {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.genre-select, .sort-select {
+    background-color: #1e1e1e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-weight: bold;
+    font-family: inherit;
+    transition: background-color 0.3s ease;
+}
+
+.genre-select:hover, .sort-select:hover {
+    background-color: #9143e4;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.logout-btn, .wishlist-btn, .back-to-games-btn {
+    background-color: transparent;
+    color: #c99aff;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(145, 67, 228, 0.5);
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover, .wishlist-btn:hover, .back-to-games-btn:hover {
+    background-color: #b385e4;
+    color: black;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #c99aff;
+}

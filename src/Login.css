@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+}
+
+.bg {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, rgb(136, 88, 219) 50%, rgb(91, 49, 183) 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;   
+}
+
+.bg2 {
+    animation-direction: alternate-reverse;
+    animation-duration: 4s;
+}
+
+.bg3 {
+    animation-duration: 5s;
+}
+
+@keyframes slide {
+    0% {
+      transform:translateX(-25%);
+    }
+    100% {
+      transform:translateX(25%);
+    }
+}
+
+.login-wrapper {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.login-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgb(76, 43, 122);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 1rem;
+}
+
+.login-input {
+    padding: 0.75rem;
+    background: #111;
+    border: none;
+    opacity: 0.6;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 4px;
+    outline: none;
+    box-shadow: #31144e 0 0 10px;
+    transition: all 0.3 ease;
+}
+
+.login-input:hover {
+    transform: scale(1.05);
+}
+
+.login-button {
+    padding: 0.75rem;
+    font-size: 1rem;
+    background: none;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.login-button:hover {
+    background: #4b248e;
+    box-shadow: #aea1b6 0 0 10px;
+}
+
+.login-error {
+    color: rgb(102, 7, 7);
+    margin-top: 1rem;
+}
+
+.login-signup {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.login-switch-button {
+    background: none;
+    border: none;
+    color: #4b248e;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 0.5rem;
+    padding: 8px;
+}
+
+.login-switch-button:hover {
+    background-color: #ffffff;
+    box-shadow: #4b248e 0 0 10px;
+}

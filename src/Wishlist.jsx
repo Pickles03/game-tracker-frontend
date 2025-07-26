@@ -48,20 +48,20 @@ function Wishlist() {
 
   return (
     <>
-    <h2>My Wishlist</h2>
+    <h2 className='wishlist-title'>My Wishlist</h2>
       <div className="wishlist-container">
       {wishlist.length === 0 ? (
         <p>No games yet!</p>
       ) : (
         notesLoaded && wishlist.map(game => (
-            <div key={game.id} className="game-wrapper">
-              <div className="gameCard">
-                <img src={game.background_image} alt={game.name} />
+            <div key={game.id} className="wishlist-game-wrapper">
+              <div className="wishlist-gameCard">
+                <img src={game.background_image} alt={game.name} className='wishlist-img'/>
                 <h4>{game.name}</h4>
                 <p>Released: {game.released}</p>
                 <p>Rating: {game.rating}</p>
                 <p>Platforms: {game.platforms.join(', ')}</p>
-                <button className='button' onClick={() => removeFromWishlist(game.id)}>Remove</button>
+                <button className='wishlist-button' onClick={() => removeFromWishlist(game.id)}>Remove</button>
               </div>
               <div className='note-pad'>
                 <form onSubmit={(e) => preventDefault()}>
@@ -74,6 +74,7 @@ function Wishlist() {
                     }
                   />
                   <button
+                    className='wishlist-button'
                     type='button'
                     onClick={() => 
                         setNotes((prev) => {const updated = {...prev}; 

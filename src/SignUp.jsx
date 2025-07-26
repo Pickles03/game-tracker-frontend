@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import axios from 'axios';
+import './SignUp.css';
 
 function SignUp({switchToLogin}) {
     const [email, setEmail] = useState('');
@@ -32,16 +33,22 @@ function SignUp({switchToLogin}) {
     };
 
     return (
-        <div style={{padding: '20px', maxWidth: '400px', margin: 'auto'}}>
-            <h2>Sign Up</h2>
-            <form onSubmit={handleRegister} autoComplete='off'>
+        <>
+        <div className='bg'></div>
+        <div className='bg bg2'></div>
+        <div className='bg bg3'></div>
+        <div className='signup-wrapper'>
+            <h1 className='welcome-title'>Welcome to the game tracker and wishlist creator</h1>
+            <h2 className='signup-title'>Sign Up</h2>
+            <form onSubmit={handleRegister} autoComplete='off' className='signup-form'>
                 <input 
                     type='email'
                     placeholder='Email'
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                /> <br /> <br />
+                    className='signup-input'
+                />
 
                 <input 
                     type='password'
@@ -49,17 +56,19 @@ function SignUp({switchToLogin}) {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                /> <br /> <br />
+                    className='signup-input'
+                />
 
-                <button type='submit' disabled={loading}>
+                <button type='submit' disabled={loading} className='signup-button'>
                     {loading ? 'Registering...' : 'Sign Up'}
                 </button>
             </form>
-            {error && <p style={{color: 'red'}}>{error}</p>}
-            <p>
-                Already have an account? <button onClick={switchToLogin}>Login here</button>
+            {error && <p className='signup-error'>{error}</p>}
+            <p className='signup-login'>
+                Already have an account? <button onClick={switchToLogin} className='switch-to-login'>Login here</button>
             </p>
         </div>
+        </>
     )
 }
 

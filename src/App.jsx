@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import {Routes, Route, useNavigate} from 'react-router-dom';
+import {Routes, Route, useNavigate, useLocation} from 'react-router-dom';
 import Wishlist from './Wishlist';
 import Login from './Login';
 import SignUp from './SignUp';
@@ -61,6 +61,23 @@ function App() {
     }
   };
 
+  const location = useLocation();
+  useEffect(() => {
+    if (location.pathname === '/games') {
+      document.body.classList.add('games-body');
+    } else {
+      document.body.classList.remove('games-body');
+    }
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (location.pathname === '/wishlist') {
+      document.body.classList.add('wishlist-body');
+    } else {
+      document.body.classList.remove('wishlist-body');
+    }
+  }, [location.pathname]);
+
   return (
     <>
       {isLoggedIn && 
@@ -73,8 +90,6 @@ function App() {
           genreFilter={genreFilter}
           setGenreFilter={setGenreFilter}
       />}
-         
-      <h1>Welcome to the game tracker and wishlist creator</h1>
 
       <Routes>
         <Route path='/' element={isLoggedIn ? (<Navigate to='/games' />) : (!signedUp ? (<Login onLogin={handleLogin} switchToSignUp={switchToSignUp}/>) : (<SignUp switchToLogin={switchToLogin}/>))} />
